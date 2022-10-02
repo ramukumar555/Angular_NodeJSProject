@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   logo = "/assets/logo/newLogo.png"
+  @Output() isSearchSelected : boolean= false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSearchClick():void{
+    this.isSearchSelected = true;    
   }
 
 }

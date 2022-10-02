@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item rest">
-                        <a class="nav-link" href="#" id="searchLink">Search</a>
+                        <a class="nav-link" id="searchLink" [routerLink]="[]" (click)="onSearchClick()">Search</a>
                     </li>
                     <li class="nav-item" id="loginbutton" class="d-block">
                         <a class="nav-link" onclick="enableLoginPage();">Login</a>
