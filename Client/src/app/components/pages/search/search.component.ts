@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Organisation } from 'src/app/model/organisation.model';
+import { ServercallsService } from 'src/app/services/servercalls.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  orgs: Array<Organisation> = [];
+  
+  constructor(private services: ServercallsService) {
+    this.services.getOrganisations().subscribe(data => {
+      this.orgs = data;
+    });
+   }
+
 
   ngOnInit() {
+    console.log("Ramu"+this.orgs);
   }
 
 }

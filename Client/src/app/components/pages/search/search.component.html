@@ -14,10 +14,13 @@
                 student.
 
             <p>
-
                 <select id="event" autofocus>
-
+                    <option value="">Select Class</option>       
+                    <option *ngFor="let org of orgs" value="{{org.OrganizationId}}">{{org.AcademyName}}</option>
+                    <option value="viewAllEvent">View All</option>
                 </select>
+
+
 
             <div id="addGroupButtonPlaceholder">
 
