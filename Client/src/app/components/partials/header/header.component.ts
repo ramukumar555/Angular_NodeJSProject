@@ -1,4 +1,5 @@
-import { Component, OnInit,Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-header',
@@ -6,16 +7,19 @@ import { Component, OnInit,Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  logo = "/assets/logo/newLogo.png";
+  commonservice:CommonService = null;
 
-  logo = "/assets/logo/newLogo.png"
-  @Output() isSearchSelected : boolean= false;
-  constructor() { }
+  
+  constructor(private common: CommonService) { 
+    this.commonservice = common;
+  }
 
   ngOnInit() {
   }
 
-  onSearchClick():void{
-    this.isSearchSelected = true;    
+  onSearchClick(): void {
+    this.commonservice.setSearchSelected(true);
   }
 
 }
