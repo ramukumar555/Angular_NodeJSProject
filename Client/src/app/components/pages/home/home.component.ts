@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
   }
 
   displayCarousel(){
+    return !this.commonservice.getSearchSelected();
+  }
+
+  displaySearch(){
     return this.commonservice.getSearchSelected();
   }
 
