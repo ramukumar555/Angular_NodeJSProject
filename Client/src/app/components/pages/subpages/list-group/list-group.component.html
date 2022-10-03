@@ -7,12 +7,103 @@
                 <div class="card-text">{{group.Description}}</div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group btn-group-justified w-100">
-                        <button type="button" class="btn btn-sm details">Details</button>
-                        <button type="button" class="btn btn-sm btn-primary">Add Me</button>
-                        <button type="button" class="btn btn-sm membersList">Students List</button>
+                        <button type="button" class="btn btn-sm details"
+                            (click)='openGroupDetails(groupDetails)'>Details</button>
+                        <button type="button" class="btn btn-sm btn-primary" (click)="openAddMember(addMember)">Add
+                            Me</button>
+                        <button type="button" class="btn btn-sm membersList"
+                            (click)="openMemberList(memberList)">Students List</button>
                     </div>
                 </div>
             </div>
         </div>
-
+        <ng-template #groupDetails let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">{{group.ClassName}} Details</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>ClassId</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.ClassId}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>ClassName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.ClassName}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>AcademyName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.AcademyName}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>TeacherName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.TeacherName}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>TeacherPhone</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.TeacherPhone}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>TeacherEmail</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.TeacherEmail}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>ClassSize</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.ClassSize}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>Image</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.Image}}</label>
+                </div>
+                <div class="form-group row">
+                    <label for="staticValue"
+                        class="col-sm col-form-label"><b>Description</b></label>
+                    <label for="staticValue" class="col-sm col-form-label">{{group.Description}}</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+            </div>
+        </ng-template>
+        <ng-template #addMember let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Add Member to Class {{group.ClassName}}</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                Testing
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+            </div>
+        </ng-template>
+        <ng-template #memberList let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Members Details of Class {{group.ClassName}}</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                Testing
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+            </div>
+        </ng-template>
     </div>

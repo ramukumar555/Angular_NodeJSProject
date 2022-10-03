@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Group } from 'src/app/model/group.model';
 import { CommonService } from 'src/app/services/common.service';
 import { ServercallsService } from 'src/app/services/servercalls.service';
@@ -12,7 +13,7 @@ export class ListGroupComponent implements OnInit {
 
 
   groups: Array<Group> = [];
-  constructor(private services: ServercallsService, private commonservice: CommonService) {
+  constructor(private services: ServercallsService, private commonservice: CommonService,private modalService: NgbModal) {
 
   }
 
@@ -30,4 +31,17 @@ export class ListGroupComponent implements OnInit {
     this.ngOnInit();
   }
 
+  groupDetailsModalReference: NgbModalRef;
+  addMemberModalReference: NgbModalRef;
+  membersListModalReference: NgbModalRef;
+  openGroupDetails(content) {
+    this.groupDetailsModalReference = this.modalService.open(content, { centered: true });
+  }
+
+  openAddMember(content) {
+    this.addMemberModalReference = this.modalService.open(content, { centered: true });
+  }
+  openMemberList(content) {
+    this.membersListModalReference = this.modalService.open(content, { centered: true });
+  }
 }

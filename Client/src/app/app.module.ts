@@ -14,9 +14,7 @@ import { CarouselComponent } from './components/pages/subpages/carousel/carousel
 import { SearchComponent } from './components/pages/search/search.component';
 import { AddGroupComponent } from './components/modals/add-group/add-group.component';  
 import { ListGroupComponent } from './components/pages/subpages/list-group/list-group.component';
-import { GroupDetailsComponent } from './components/modals/group-details/group-details.component';
-import { MembersListComponent } from './components/modals/members-list/members-list.component';
-import { AddmemberComponent } from './components/modals/addmember/addmember.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,10 +29,7 @@ const appRoutes: Routes = [
     CarouselComponent,
     SearchComponent,
     AddGroupComponent,
-    ListGroupComponent,
-    GroupDetailsComponent,
-    MembersListComponent,
-    AddmemberComponent
+    ListGroupComponent
   ],
   imports: [
     BrowserModule,
