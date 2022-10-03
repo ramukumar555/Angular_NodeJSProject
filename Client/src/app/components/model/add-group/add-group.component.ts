@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Organisation } from 'src/app/model/organisation.model';
 import { CommonService } from 'src/app/services/common.service';
 import { ServercallsService } from 'src/app/services/servercalls.service';
+import { ListGroupComponent } from '../../pages/list-group/list-group.component';
 
 @Component({
   selector: 'app-add-group',
@@ -47,6 +48,7 @@ export class AddGroupComponent implements OnInit {
   });
 
   orgs: Array<Organisation> = [];
+  @Output() messageEvent = new EventEmitter<string>();
 
   constructor(private services: ServercallsService, private commonservice: CommonService, private modalService: NgbModal) {
     this.services.getOrganisations().subscribe(data2 => {
@@ -59,11 +61,13 @@ export class AddGroupComponent implements OnInit {
   }
 
   openAddGroup(content) {
-    this.addGroupModalReference =this.modalService.open(content, { centered: true });
+    this.addGroupModalReference = this.modalService.open(content, { centered: true });
   }
 
   sendReqToServer(url, type) {
-    this.services.sendReqToServer(url,type,this.AddGroup.value);
+    this.services.sendReqToServer(url, type, this.AddGroup.value);
+    this.AddGroup.reset();
+    this.messageEvent.emit("Update the Groups");
     this.addGroupModalReference.close();
   }
 

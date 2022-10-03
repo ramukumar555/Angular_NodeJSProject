@@ -32,8 +32,13 @@ export class SearchComponent implements OnInit {
     this.listGroup.update();
     console.log(this.selectedItem);
   }
-  
+
   displayAddGroup(){
     return this.commonservice.getSearchSelected();
+  }
+
+  receiveMessage($event) {    
+    this.commonservice.setSelectedSearchOrganisation("");
+    this.listGroup.update();
   }
 }

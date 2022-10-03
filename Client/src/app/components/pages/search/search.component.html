@@ -17,8 +17,8 @@
                     <option value="viewAllEvent">View All</option>
                 </select>
             </p>
-            <app-add-group *ngIf="displayAddGroup()" ></app-add-group>
+            <app-add-group *ngIf="displayAddGroup()" (messageEvent)="receiveMessage($event)" ></app-add-group>
         </div>
-        <app-list-group></app-list-group>
+        <app-list-group ></app-list-group>
     </section>
 </div>

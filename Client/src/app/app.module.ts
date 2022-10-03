@@ -12,7 +12,7 @@ import { FooterComponent } from './components/partials/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SearchComponent } from './components/pages/search/search.component';
-import { AddGroupComponent } from './components/pages/add-group/add-group.component';
+import { AddGroupComponent } from './components/model/add-group/add-group.component';
 import { ListGroupComponent } from './components/pages/list-group/list-group.component';
 
 const appRoutes: Routes = [
