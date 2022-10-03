@@ -1,0 +1,15 @@
+.btn {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.btn-sm {
+    background-color: #5ed0e4;
+}
+
+.card-img-top {
+    height: 450px !important;
+}
+.card-text{
+    height: 75px !important;
+}

@@ -1,0 +1,18 @@
+<br>
+<div id="groupsRow" class="row">
+    <div class="card-group col-md-4" *ngFor="let group of groups">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{group.Image}}" alt="Thumbnail">
+            <div class="card-body">
+                <div class="card-text">{{group.Description}}</div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group btn-group-justified w-100">
+                        <button type="button" class="btn btn-sm details">Details</button>
+                        <button type="button" class="btn btn-sm btn-primary">Add Me</button>
+                        <button type="button" class="btn btn-sm membersList">Students List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

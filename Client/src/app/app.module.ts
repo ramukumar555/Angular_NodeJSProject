@@ -13,6 +13,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SearchComponent } from './components/pages/search/search.component';
 import { AddGroupComponent } from './components/pages/add-group/add-group.component';
+import { ListGroupComponent } from './components/pages/list-group/list-group.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HomeComponent,
     CarouselComponent,
     SearchComponent,
-    AddGroupComponent
+    AddGroupComponent,
+    ListGroupComponent
   ],
   imports: [
     BrowserModule,
