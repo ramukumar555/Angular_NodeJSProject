@@ -25,55 +25,45 @@
             </div>
             <div class="modal-body">
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>ClassId</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>ClassId</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.ClassId}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>ClassName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>ClassName</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.ClassName}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>AcademyName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>AcademyName</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.AcademyName}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>TeacherName</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>TeacherName</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.TeacherName}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>TeacherPhone</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>TeacherPhone</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.TeacherPhone}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>TeacherEmail</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>TeacherEmail</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.TeacherEmail}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>ClassSize</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>ClassSize</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.ClassSize}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>Image</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>Image</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.Image}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticValue"
-                        class="col-sm col-form-label"><b>Description</b></label>
+                    <label for="staticValue" class="col-sm col-form-label"><b>Description</b></label>
                     <label for="staticValue" class="col-sm col-form-label">{{group.Description}}</label>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-                <button type="button" class="btn btn-primary"
-                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
             </div>
         </ng-template>
         <ng-template #addMember let-modal>
@@ -86,9 +76,8 @@
                 Testing
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-                <button type="button" class="btn btn-primary"
-                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
             </div>
         </ng-template>
         <ng-template #memberList let-modal>
