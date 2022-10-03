@@ -11,6 +11,7 @@ import { ServercallsService } from 'src/app/services/servercalls.service';
 export class SearchComponent implements OnInit {
 
   orgs: Array<Organisation> = [];
+  selectedItem:string ="viewAllEvent";
   
   constructor(private services: ServercallsService,private commonservice:CommonService) {
     this.services.getOrganisations().subscribe(data => {
@@ -24,7 +25,8 @@ export class SearchComponent implements OnInit {
   }
 
   updateSearchResult($event){
-    console.log($event.target.value);
+    this.selectedItem = $event.target.value;
+    console.log(this.selectedItem);
   }
   displayAddGroup(){
     return this.commonservice.getSearchSelected();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Organisation } from 'src/app/model/organisation.model';
 import { CommonService } from 'src/app/services/common.service';
 import { ServercallsService } from 'src/app/services/servercalls.service';
@@ -32,11 +33,24 @@ export class AddGroupComponent implements OnInit {
     "Description",
 
   ];
+  addGroupModalReference: NgbModalRef;
+
+  AddGroup = new FormGroup({
+    ClassName: new FormControl(),
+    AcademyName: new FormControl(),
+    TeacherName: new FormControl(),
+    TeacherPhone: new FormControl(),
+    TeacherEmail: new FormControl(),
+    ClassSize: new FormControl(),
+    Image: new FormControl(),
+    Description: new FormControl()
+  });
+
   orgs: Array<Organisation> = [];
-  
-  constructor(private services: ServercallsService,private commonservice: CommonService,private modalService: NgbModal) {
-    this.services.getOrganisations().subscribe(data => {
-      this.orgs = data;
+
+  constructor(private services: ServercallsService, private commonservice: CommonService, private modalService: NgbModal) {
+    this.services.getOrganisations().subscribe(data2 => {
+      this.orgs = data2;
     });
   }
 
@@ -44,12 +58,13 @@ export class AddGroupComponent implements OnInit {
   ngOnInit() {
   }
 
-  openAddGroup(content){
-    this.modalService.open(content, { centered: true });
+  openAddGroup(content) {
+    this.addGroupModalReference =this.modalService.open(content, { centered: true });
   }
 
-  sendReqToServer(url,type,key){
-    this.services.sendReqToServer(url,type,key);
+  sendReqToServer(url, type) {
+    this.services.sendReqToServer(url,type,this.AddGroup.value);
+    this.addGroupModalReference.close();
   }
 
 }

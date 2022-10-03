@@ -9,7 +9,7 @@ import { Organisation } from '../model/organisation.model';
 })
 export class ServercallsService {
 
-  output = null;
+  output = "failed";
   host = "http://localhost:8080";
   private httpOptions = {
     headers: new HttpHeaders({
@@ -23,9 +23,14 @@ export class ServercallsService {
     return this.http.get(this.host+"/api/organizations", this.httpOptions).pipe(map(res => <Organisation[]>res));;
   }
   
-  sendReqToServer(url: string, type: string, key: string) {    
-    if('POST' === type){
-      this.output =this.http.post(this.host+url,this.httpOptions);
+  sendReqToServer(url: string, type: string, data) {    
+    if('POST' === type){      
+      this.http.post(this.host+url, data, this.httpOptions ).subscribe(res => {
+        this.output="success";
+        console.log("Response "+res);
+        return this.output;
+      } );
+      
     }
     return this.output;
     
