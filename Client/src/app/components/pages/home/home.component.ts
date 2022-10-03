@@ -7,10 +7,8 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  commonservice:CommonService = null;
   
-  constructor(private common: CommonService) { 
-    this.commonservice = common;
+  constructor(private commonservice: CommonService) { 
   }
 
   ngOnInit() {

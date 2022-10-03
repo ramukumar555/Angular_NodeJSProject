@@ -1,0 +1,39 @@
+<div id="addGroupButtonPlaceholder">
+    <button type="button" id="addGroupButton" class="btn btn-sm btn-primary" (click)="openAddGroup(addGroup)">Add a
+        Class</button>
+    <ng-template #addGroup let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Add New Class</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form id="addGroupForm" class="form-group container">
+                <div class="form-group row" *ngFor="let value of ClassLabel">
+
+                    <label for="{{value}}" class="col-sm col-form-label"><b>{{value}}</b></label>
+
+                    <div class="col-sm" *ngIf="'AcademyName' !== value; else AcademyName">
+
+                        <input type="text" class="form-control" id="{{value}}" name="{{value}}" required>
+                    </div>
+
+                    <ng-template #AcademyName>
+                        <div class="col-sm">
+
+                            <select class="form-control" id="{{value}}" name="{{value}}" required>
+                                <option value="">Select Class</option>
+                                <option *ngFor="let org of orgs" value="{{org.AcademyName}}">{{org.AcademyName}}</option>
+                            </select>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+            <button type="button" class="btn btn-primary"  
+              (click)="sendReqToServer('/api/addgroups','POST','#addGroupForm');">Save</button>
+        </div>
+    </ng-template>
+</div>

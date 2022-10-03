@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -10,6 +12,7 @@ import { FooterComponent } from './components/partials/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SearchComponent } from './components/pages/search/search.component';
+import { AddGroupComponent } from './components/pages/add-group/add-group.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,12 +25,14 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     CarouselComponent,
-    SearchComponent
+    SearchComponent,
+    AddGroupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,    
+    HttpClientModule,
+    NgbModalModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
