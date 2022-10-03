@@ -12,8 +12,11 @@ import { FooterComponent } from './components/partials/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SearchComponent } from './components/pages/search/search.component';
-import { AddGroupComponent } from './components/modal/add-group/add-group.component';
+import { AddGroupComponent } from './components/modals/add-group/add-group.component'; 
 import { ListGroupComponent } from './components/pages/list-group/list-group.component';
+import { GroupDetailsComponent } from './components/modals/group-details/group-details.component';
+import { MembersListComponent } from './components/modals/members-list/members-list.component';
+import { AddmemberComponent } from './components/modals/addmember/addmember.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +31,10 @@ const appRoutes: Routes = [
     CarouselComponent,
     SearchComponent,
     AddGroupComponent,
-    ListGroupComponent
+    ListGroupComponent,
+    GroupDetailsComponent,
+    MembersListComponent,
+    AddmemberComponent
   ],
   imports: [
     BrowserModule,
