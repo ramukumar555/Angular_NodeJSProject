@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Organisation } from 'src/app/model/organisation.model';
 import { CommonService } from 'src/app/services/common.service';
 import { ServercallsService } from 'src/app/services/servercalls.service';
-import { ListGroupComponent } from '../list-group/list-group.component';
+import { ListGroupComponent } from '../subpages/list-group/list-group.component';
 
 @Component({
   selector: 'app-search',

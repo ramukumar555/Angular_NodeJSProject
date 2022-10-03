@@ -4,7 +4,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Organisation } from 'src/app/model/organisation.model';
 import { CommonService } from 'src/app/services/common.service';
 import { ServercallsService } from 'src/app/services/servercalls.service';
-import { ListGroupComponent } from '../../pages/list-group/list-group.component';
+ 
 
 @Component({
   selector: 'app-add-group',
