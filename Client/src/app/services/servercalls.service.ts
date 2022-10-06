@@ -34,6 +34,10 @@ export class ServercallsService {
       return this.http.post(this.host + url, data, this.httpOptions).subscribe(res => {
         console.log("Response for url " + this.host + url + " is " + res);
       });
+    }else if ('PUT' === type) {
+      return this.http.put(this.host + url, data, this.httpOptions).subscribe(res => {
+        console.log("Response for url " + this.host + url + " is " + res);
+      });
     }
   }
 }

@@ -62,8 +62,57 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-primary" (click)="openEditGroup(editGroup)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="openDeleteGroup(deleteGroup)">Delete</button>
+            </div>
+        </ng-template>
+        <ng-template #editGroup let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Class {{group.ClassName}}</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="EditGroup" ngNativeValidate >
+                    <div class="form-group row" *ngFor="let value of ClassLabel;index as i">
+    
+                        <label for="{{value}}" class="col-sm col-form-label"><b>{{value}}</b></label>
+    
+                        <div class="col-sm" *ngIf="'AcademyName' !== value; else AcademyName">
+                            <input type="text" class="form-control" id="{{value}}" name="{{value}}" required formControlName="{{value}}" value="{{group[value]}}" [ngModel]="group[value]">
+                        </div>
+    
+                        <ng-template #AcademyName>
+                            <div class="col-sm">
+    
+                                <select class="form-control" autofocus id="{{value}}" name="{{value}}" required formControlName="{{value}}" [ngModel]="group.AcademyName">
+                                    <option *ngFor="let org of orgs" value="{{org.AcademyName}}" >{{org.AcademyName}}</option>
+                                </select>
+    
+                            </div>
+                        </ng-template>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="sendReqToServer('/api/groups/:','editGroup',group)">Save</button>
+            </div>
+        </ng-template>
+        <ng-template #deleteGroup let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Members Details of Class {{group.ClassName}}</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                Testing
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
             </div>
         </ng-template>
         <ng-template #addMember let-modal>
