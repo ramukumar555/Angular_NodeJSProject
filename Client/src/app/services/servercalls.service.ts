@@ -38,6 +38,10 @@ export class ServercallsService {
       return this.http.put(this.host + url, data, this.httpOptions).subscribe(res => {
         console.log("Response for url " + this.host + url + " is " + res);
       });
+    }else if ('DELETE' === type) {
+      return this.http.delete(this.host + url, this.httpOptions).subscribe(res => {
+        console.log("Response for url " + this.host + url + " is " + res);
+      });
     }
   }
 }

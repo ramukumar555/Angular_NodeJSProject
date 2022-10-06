@@ -102,17 +102,17 @@
         </ng-template>
         <ng-template #deleteGroup let-modal>
             <div class="modal-header">
-                <h4 class="modal-title">Members Details of Class {{group.ClassName}}</h4>
+                <h4 class="modal-title">Delete {{group.ClassName}}</h4>
                 <button type="button" class="btn-close" aria-label="Close"
                     (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="modal-body">
-                Testing
+                Are you sure to delete the {{group.ClassName}}?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
                 <button type="button" class="btn btn-primary"
-                    (click)="sendReqToServer('/api/addgroups','POST')">Save</button>
+                    (click)="sendReqToServer('/api/groups/','deleteGroup',group)">Delete</button>
             </div>
         </ng-template>
         <ng-template #addMember let-modal>

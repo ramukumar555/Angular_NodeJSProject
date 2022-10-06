@@ -89,7 +89,7 @@ export class ListGroupComponent implements OnInit {
 
   sendReqToServer(url, modalId,group) {
     let apiUrl = "";
-    let type = "PUT";
+    let type = "POST";
     let data = null;
     let formGroupRef = null;
     if("editGroup" === modalId){
@@ -97,6 +97,12 @@ export class ListGroupComponent implements OnInit {
       data = this.EditGroup.value;
       this.EditGroup.reset();
       formGroupRef = this.editGroupModalReference;
+      type = "PUT";
+    } else if("deleteGroup" === modalId){
+      apiUrl = url+group.ClassId;
+      data = null;
+      formGroupRef = this.deleteGroupListModalReference;
+      type = "DELETE";
     }
     this.services.sendReqToServer(apiUrl, type, data);
     formGroupRef.close();   
